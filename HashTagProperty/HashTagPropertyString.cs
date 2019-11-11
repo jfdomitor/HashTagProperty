@@ -4,15 +4,14 @@ namespace HashTagProperty
 {
     public class HashTagPropertyString
     {
-        private string pStorageStr = string.Empty;
-
-        public string StorageString { get { return pStorageStr; } }
+ 
+        public string StorageString { get; private set; }
 
         public HashTagPropertyString() { }
 
         public HashTagPropertyString(string s)
         {
-            pStorageStr = s;
+            StorageString = s;
         }
 
         public string GetHashTagPropertyValue(string name)
@@ -25,12 +24,12 @@ namespace HashTagProperty
         /// </summary>
         public void AddUpdateHashTagProperty(string key, string value)
         {
-            pStorageStr = StorageString.AddUpdateHashTagProperty(key, value.Replace("#", ""));
+            StorageString = StorageString.AddUpdateHashTagProperty(key, value.Replace("#", ""));
         }
 
         public void MergeHashTagPropertyString(string propertystring)
         {
-            pStorageStr = StorageString.MergeHashTagPropertyString(propertystring);
+            StorageString = StorageString.MergeHashTagPropertyString(propertystring);
         }
 
         public bool HasHashTagProperty(string name)
